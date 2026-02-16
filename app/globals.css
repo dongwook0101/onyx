@@ -1,0 +1,25 @@
+@import 'tailwindcss';
+
+:root {
+  --background: #000000;
+  --foreground: #FFFFFF;
+  --gradient-from: #6366f1;
+  --gradient-to: #a855f7;
+}
+
+@theme inline {
+  --font-sans: 'Noto Sans', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+}
+
+@layer base {
+  * {
+    @apply border-white/10;
+  }
+  body {
+    @apply bg-black text-white antialiased;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
