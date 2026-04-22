@@ -17,7 +17,7 @@ export function DemoSection() {
             DEMO
           </h2>
           <p className="mt-4 text-lg text-white/70 max-w-2xl mx-auto">
-            실제 인물의 디지털 트윈(아바타)으로 영상을 만듭니다.
+            인플루언서의 영향력을 자산화하는 고정밀 버추얼 휴먼 솔루션을 제공합니다.
           </p>
         </motion.div>
 

@@ -26,7 +26,7 @@ const values = [
   {
     title: "신뢰",
     description:
-      "실제 인물의 외모와 음성을 다루는 만큼, 윤리적 기준과 투명성을 최우선으로 합니다. 모든 디지털 트윈은 본인의 동의 하에 제작됩니다.",
+      "기존 인플루언서가 가진 휴먼 리스크를 원천적으로 차단합니다. 브랜드의 메시지를 변함없이 안전하고 일관되게 전달하는 완벽히 통제 가능한 버추얼 IP를 제공합니다.",
     icon: "◈",
   },
   {
@@ -41,7 +41,7 @@ const milestones = [
   { year: "2024", event: "디지털 트윈 파이프라인 개발" },
   { year: "2025", event: "첫 번째 모델 계약" },
   { year: "2025", event: "첫 수요처 파트너십 체결" },
-  { year: "2025", event: "INSIDERS 대상 수상" },
+  { year: "2025", event: "연세대학교 기술지주회사 창업 대상 수상" },
   //{ year: "2025", event: "시리즈 A 투자 유치" },
   //{ year: "2025", event: "글로벌 시장 진출 (일본·동남아)" },
 ]
@@ -100,10 +100,10 @@ export default function AboutPage() {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="text-4xl md:text-5xl lg:text-6xl font-light text-white tracking-tight leading-tight"
           >
-            디지털 트윈의 가능성을
+            맞춤형 버추얼 페르소나,
             <br />
             <span className="bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
-              무한히 확장하다
+              한계 없는 비즈니스 확장
             </span>
           </motion.h1>
           <motion.p
@@ -112,9 +112,9 @@ export default function AboutPage() {
             transition={{ duration: 0.8, delay: 0.25 }}
             className="mt-8 text-lg md:text-xl text-white/70 leading-relaxed"
           >
-            ONYX는 AI 디지털 휴먼 기술을 통해
+            ONYX는 완벽히 현지화된 페르소나와 압도적인 비용 혁신을 바탕으로
             <br className="hidden md:block" />
-            시공간의 한계를 넘어선 커뮤니케이션을 만들어갑니다.
+            한계 없는 글로벌 커머스와 퍼스널 브랜딩의 새로운 기준을 제시합니다.
           </motion.p>
         </div>
       </section>
@@ -128,9 +128,9 @@ export default function AboutPage() {
                 Our Mission
               </p>
               <h2 className="text-3xl md:text-4xl font-light text-white tracking-tight leading-snug">
-                디지털 트윈으로 여는
+                닫힌 시장의 문턱을 넘는
                 <br />
-                새로운 소통의 시대
+                가장 강력한 버추얼 솔루션
               </h2>
             </motion.div>
 
@@ -139,14 +139,10 @@ export default function AboutPage() {
               transition={{ duration: 0.6, delay: 0.15 }}
             >
               <p className="text-white/70 text-lg leading-relaxed">
-                우리는 실제 인물의 외모, 음성, 표정을 정밀하게 재현하는 AI 디지털
-                트윈 기술을 개발합니다. 이를 통해 기업은 시간과 장소에 구애받지
-                않고, 신뢰할 수 있는 브랜드 메시지를 수백만 명에게 개인화하여
-                전달할 수 있습니다.
+                ONYX는 어떠한 도메인의 제약에도 얽매이지 않는 강력한 버추얼 IP를 창조합니다. 시공간의 제약과 휴먼 리스크를 완벽히 지워내며, 가장 합리적인 방식으로 최고 수준의 퍼포먼스를 이끌어냅니다.
               </p>
               <p className="mt-6 text-white/70 text-lg leading-relaxed">
-                단순한 기술이 아닌, 사람과 사람 사이의 연결을 더 깊고 넓게 만드는
-                것이 ONYX의 미션입니다.
+                일회성 솔루션을 넘어, 스스로 가치를 창출하고 무한히 뻗어나가는 대체 불가능한 브랜드 자산을 구축하는 것이 ONYX의 미션입니다.
               </p>
             </motion.div>
           </div>

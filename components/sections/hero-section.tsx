@@ -86,9 +86,9 @@ export function HeroSection() {
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           className="mt-8 text-lg md:text-xl text-white/90 leading-relaxed max-w-2xl mx-auto"
         >
-          물리적 제약에서 벗어나
+          단 하나의 버추얼 휴먼,
           <br />
-          IP의 가능성을 무한히 확장합니다.
+          채널을 확장하는 혁신의 시작
         </motion.p>
       </div>
     </section>

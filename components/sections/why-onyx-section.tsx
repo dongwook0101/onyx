@@ -5,22 +5,20 @@ import Image from "next/image"
 
 const features = [
   {
-    title: "시공간의 해방",
-    items: ["24/7 언제 어디서나", "실시간 음성/이미지 생성"],
+    title: "타깃 맞춤형 IP 딜리버리",
+    items: ["국가별 소비 성향과 문화를 완벽히 흡수한 로컬라이징 페르소나를 가장 유연하게 제공합니다."],
     decoration: "rings",
   },
   {
-    title: "브랜드 신뢰 구축",
+    title: "압도적인 비용 절감",
     items: [
-      "실제 인물이 직접 그려내어",
-      "귀사의 비전과 신뢰를",
-      "풍부하게 전달합니다.",
+      "A급 쇼호스트 및 인플루언서 섭외에 소요되는 막대한 비용을 획기적으로 낮춥니다.",
     ],
     decoration: "droplet",
   },
   {
-    title: "초개인화",
-    items: ["수백 명 개개인의 이름을", "부르는 1:1 메시지"],
+    title: "영구적인 자산 구축",
+    items: ["제약 없이 통제 가능하며 기업의 영구적인 자산이 되는 버추얼 IP를 육성합니다."],
     decoration: "ribbon",
   },
 ]
@@ -90,7 +88,7 @@ function FeatureCard({
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       viewport={{ once: true }}
-      className="relative rounded-2xl border border-indigo-500/40 bg-white/5 p-8 py-12 overflow-hidden flex-1 min-w-[min(100%,260px)] min-h-[260px]"
+      className="relative rounded-2xl border border-indigo-500/40 bg-white/5 p-8 py-12 overflow-hidden flex-1 min-w-[min(100%,260px)] min-h-[260px] flex flex-col"
     >
       {decorationSrc && (
         <div className="absolute top-0 right-0 w-24 h-24">
@@ -103,13 +101,15 @@ function FeatureCard({
           />
         </div>
       )}
-      <h3 className="text-lg font-bold text-white mb-3 relative z-10">{title}</h3>
+      <h3 className="text-lg font-bold text-white mb-0.5 relative z-10">{title}</h3>
       {items.length > 0 && (
-        <ul className="space-y-1 text-white/70 text-sm leading-relaxed relative z-10">
-          {items.map((item, i) => (
-            <li key={i}>{item}</li>
-          ))}
-        </ul>
+        <div className="flex-1 flex items-center relative z-10">
+          <ul className="space-y-1 text-white/70 text-sm leading-relaxed">
+            {items.map((item, i) => (
+              <li key={i}>{item}</li>
+            ))}
+          </ul>
+        </div>
       )}
     </motion.div>
   )
