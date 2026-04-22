@@ -12,18 +12,18 @@ const fadeUp = {
 const solutions = [
   {
     id: "homepage",
-    badge: "Website",
-    title: "메인 홈페이지 비디오",
+    badge: "LIVE COMMERCE",
+    title: "24시간 버추얼 라이브",
     description:
-      "브랜드의 첫인상을 결정짓는 메인 홈페이지에 디지털 트윈 영상을 삽입하여, 방문자에게 생동감 있는 브랜드 경험을 제공합니다. 실제 모델이 직접 말하는 듯한 자연스러운 인사 영상으로 신뢰와 친밀감을 동시에 전달합니다.",
+      "중국 최대 뷰티·라이프스타일 플랫폼 샤오홍슈에 최적화된 버추얼 인플루언서를 라이브 호스트로 도입하세요. 시공간의 제약 없이 24시간 끊임없는 라이브 방송이 가능하며, 원어민 수준의 자연스러운 중국어 소통으로 중화권 소비자의 구매 전환을 극대화합니다.",
     highlights: [
-      "브랜드 대표/모델의 환영 메시지",
-      "서비스 소개 및 프로모션 안내",
-      "다국어 지원으로 글로벌 대응",
+      "24시간 중단 없는 자동화 라이브 스트리밍",
+      "중국인 대역을 활용한 실시간 고객 대응",
+      "인플루언서 섭외 비용 절감 및 매출 극대화",
     ],
     media: {
       type: "image" as const,
-      src: "/images/solution/homepage-mockup.png",
+      src: "/images/solution/live-commerce.png",
       alt: "홈페이지 비디오 목업",
     },
   },
@@ -63,14 +63,14 @@ const solutions = [
   },
   {
     id: "clothing",
-    badge: "E-commerce",
-    title: "의류 피팅 이미지",
+    badge: "AI CONTENT",
+    title: "버추얼 인플루언서",
     description:
-      "실제 모델의 체형 데이터를 기반으로 다양한 의류를 AI로 피팅한 이미지를 생성합니다. 촬영 일정과 비용 없이도 수백 벌의 룩북을 빠르게 제작할 수 있습니다.",
+      "브랜드 전용으로 맞춤 설계된 고도화된 버추얼 인플루언서를 활용하여, 실제 모델의 일정과 비용 제약 없이 대량의 화보 및 영상 콘텐츠를 생성합니다. 24시간 중단 없는 마케팅이 가능합니다.",
     highlights: [
-      "실물과 구분 어려운 고품질 피팅 이미지",
-      "촬영 비용·시간 대폭 절감",
-      "시즌별 대량 룩북 제작 가능",
+      "정교한 실사 수준의 고품질 디지털 휴먼",
+      "섭외 및 촬영 비용의 획기적 절감",
+      "다국어 및 대량 콘텐츠의 빠른 제작",
     ],
     media: {
       type: "image" as const,
@@ -103,12 +103,12 @@ export default function SolutionPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-light text-white tracking-tight leading-tight"
+            className="text-4xl md:text-5xl lg:text-6xl font-medium text-white tracking-tight leading-tight"
           >
-            하나의 촬영으로
+            버추얼 IP로 만드는
             <br />
             <span className="bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
-              무한한 콘텐츠를
+              비즈니스 스케일업 
             </span>
           </motion.h1>
           <motion.p
@@ -117,9 +117,9 @@ export default function SolutionPage() {
             transition={{ duration: 0.8, delay: 0.25 }}
             className="mt-8 text-lg md:text-xl text-white/60 leading-relaxed max-w-2xl mx-auto"
           >
-            홈페이지, 현장 디스플레이, 개인화 메시지, 피팅 이미지까지 —
+            중국 라이브 이커머스 호스트부터 브랜드 엠버서더까지,
             <br className="hidden md:block" />
-            AI 디지털 트윈이 만드는 새로운 콘텐츠 파이프라인을 만나보세요.
+            브랜드의 매출을 극대화하는 차세대 엔터테인먼트 파트너
           </motion.p>
         </div>
       </section>
@@ -153,18 +153,18 @@ export default function SolutionPage() {
             {[
               {
                 step: "01",
-                title: "촬영 & 수집",
-                desc: "모델의 영상·음성·이미지를 1회 촬영합니다. 기존 소스가 있다면 그대로 활용 가능합니다.",
+                title: "페르소나 설계",
+                desc: "활용 목적에 맞는 페르소나를 설계하고, 아바타 이미지를 생성합니다.",
               },
               {
                 step: "02",
-                title: "AI 생성",
-                desc: "디지털 트윈 제작 파이프라인으로 콘텐츠를 생성합니다. 원하는 영상을 모두 제작해드립니다.",
+                title: "아바타 생성",
+                desc: "버추얼 휴먼 제작 파이프라인으로 콘텐츠를 생성합니다. ",
               },
               {
                 step: "03",
                 title: "배포 & 운영",
-                desc: "홈페이지, DID, 메신저 등 원하는 채널에 바로 배포합니다. 수정과 업데이트도 실시간으로 가능합니다.",
+                desc: "샤오홍슈, 인스타그램 등 원하는 채널에 바로 배포합니다.",
               },
             ].map((item, i) => (
               <motion.div
