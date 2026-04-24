@@ -88,7 +88,7 @@ function FeatureCard({
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       viewport={{ once: true }}
-      className="relative rounded-2xl border border-indigo-500/40 bg-white/5 p-8 py-12 overflow-hidden flex-1 min-w-[min(100%,260px)] min-h-[260px] flex flex-col"
+      className="relative rounded-2xl border border-indigo-500/40 bg-white/5 p-8 py-8 overflow-hidden flex-1 min-w-[min(100%,260px)] min-h-[200px] flex flex-col"
     >
       {decorationSrc && (
         <div className="absolute top-0 right-0 w-24 h-24">
