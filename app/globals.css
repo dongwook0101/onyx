@@ -8,7 +8,7 @@
 }
 
 @theme inline {
-  --font-sans: 'Noto Sans', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-sans: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
 }
 
 @layer base {

@@ -98,7 +98,8 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-light text-white tracking-tight leading-tight"
+            className="text-4xl md:text-5xl lg:text-6xl font-medium
+             text-white tracking-tight leading-tight"
           >
             맞춤형 버추얼 페르소나,
             <br />
@@ -141,9 +142,6 @@ export default function AboutPage() {
               <p className="text-white/70 text-lg leading-relaxed">
                 ONYX는 어떠한 도메인의 제약에도 얽매이지 않는 강력한 버추얼 IP를 창조합니다. 시공간의 제약과 휴먼 리스크를 완벽히 지워내며, 가장 합리적인 방식으로 최고 수준의 퍼포먼스를 이끌어냅니다.
               </p>
-              <p className="mt-6 text-white/70 text-lg leading-relaxed">
-                일회성 솔루션을 넘어, 스스로 가치를 창출하고 무한히 뻗어나가는 대체 불가능한 브랜드 자산을 구축하는 것이 ONYX의 미션입니다.
-              </p>
             </motion.div>
           </div>
         </div>
@@ -155,9 +153,9 @@ export default function AboutPage() {
           <motion.div
             {...fadeUp}
             transition={{ duration: 0.6 }}
-            className="rounded-2xl border border-white/10 bg-white/[0.03] p-10 md:p-14"
+            className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 md:p-14"
           >
-            <div className="grid grid-cols-3 gap-10">
+            <div className="grid grid-cols-3 gap-4 md:gap-10">
               {stats.map((stat, i) => (
                 <motion.div
                   key={stat.label}
@@ -167,7 +165,7 @@ export default function AboutPage() {
                   viewport={{ once: true }}
                   className="text-center"
                 >
-                  <p className="text-3xl md:text-4xl font-light bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
+                  <p className="text-2xl md:text-4xl font-light bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
                     {stat.value}
                   </p>
                   <p className="mt-2 text-sm text-white/50">{stat.label}</p>

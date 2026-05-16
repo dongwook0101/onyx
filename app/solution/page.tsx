@@ -11,11 +11,28 @@ const fadeUp = {
 
 const solutions = [
   {
+    id: "clothing",
+    badge: "AI CONTENT",
+    title: "버추얼 인플루언서",
+    description:
+      "독보적인 퍼스널 브랜딩을 갖춘 버추얼 인플루언서를 기획하여 파급력 있는 브랜드 마케팅을 전개합니다. 충성도 높은 팬덤을 구축하고 유료 구독 플랫폼과 연계하여, 단순 홍보를 넘어 지속 가능한 형태의 독립적인 수익 파이프라인을 창출합니다.",
+    highlights: [
+      "매력적인 퍼스널 브랜딩 기반의 강력한 팬덤 구축",
+      "인플루언서 영향력을 활용한 제휴 브랜드 홍보 효과 극대화",
+      "유료 구독 서비스 연계를 통한 안정적인 부가가치 창출",
+    ],
+    media: {
+      type: "image" as const,
+      src: "/images/solution/virtual.png",
+      alt: "버츄얼 인플루언서, 모찌츄 ",
+    },
+  },
+  {
     id: "homepage",
     badge: "LIVE COMMERCE",
     title: "24시간 버추얼 라이브",
     description:
-      "중국 최대 뷰티·라이프스타일 플랫폼 샤오홍슈에 최적화된 버추얼 인플루언서를 라이브 호스트로 도입하세요. 시공간의 제약 없이 24시간 끊임없는 라이브 방송이 가능하며, 원어민 수준의 자연스러운 중국어 소통으로 중화권 소비자의 구매 전환을 극대화합니다.",
+      "샤오홍슈·도우인에 최적화된 버추얼 인플루언서를 라이브 호스트로 도입하세요. 시공간의 제약 없이 24시간 끊임없는 라이브 방송이 가능하며, 원어민 수준의 자연스러운 중국어 소통으로 중화권 소비자의 구매 전환을 극대화합니다.",
     highlights: [
       "24시간 중단 없는 자동화 라이브 스트리밍",
       "중국인 대역을 활용한 실시간 고객 대응",
@@ -29,53 +46,19 @@ const solutions = [
   },
   {
     id: "did",
-    badge: "On-site",
-    title: "현장 DID 비디오",
+    badge: "INTERACTIVE AI",
+    title: "AI 컨시어지",
     description:
-      "매장, 전시장, 병원 등 오프라인 현장의 디지털 사이니지(DID)에 AI 아바타 영상을 송출합니다. 시간대별, 고객 세그먼트별로 맞춤 콘텐츠를 자동 생성하여 운영 효율을 극대화합니다.",
+      "고객의 상황에 맞춰 실시간으로 반응하는 AI 직원을 배치하세요. 매장, 병원, 전시장 등 오프라인 현장에서 24시간 끊김 없는 맞춤형 안내와 CS를 제공하여 인건비를 획기적으로 절감하고 운영 효율을 극대화합니다.",
     highlights: [
-      "매장·병원·전시장 등 현장 디스플레이",
-      "시간대·상황별 자동 콘텐츠 변환",
-      "촬영 없이 신속한 영상 교체",
+      "상황 맞춤형 인터랙티브 응대",
+      "현장 안내, 프로모션 등 오프라인 CS 인력 완벽 대체",
+      "시간대 및 고객 세그먼트별 타겟팅 콘텐츠 자동 송출",
     ],
     media: {
       type: "video" as const,
       src: "/videos/did_mockup.mp4",
       alt: "DID 비디오 목업",
-    },
-  },
-  {
-    id: "vip",
-    badge: "Personalized",
-    title: "VIP 고객 커스텀 비디오",
-    description:
-      "수백 명의 고객 각각에게 이름을 불러주는 1:1 맞춤 영상 메시지를 생성합니다. 카카오톡, 문자 등 다양한 채널로 발송하여 특별한 고객 경험을 선사합니다.",
-    highlights: [
-      "고객 이름·정보 기반 개인화 메시지",
-      "카카오톡·문자·이메일 다채널 발송",
-      "시술 후기, VIP 초대, 기념일 축하 등",
-    ],
-    media: {
-      type: "image" as const,
-      src: "/images/solution/vip-mockup.png",
-      alt: "VIP 커스텀 비디오 목업",
-    },
-  },
-  {
-    id: "clothing",
-    badge: "AI CONTENT",
-    title: "버추얼 인플루언서",
-    description:
-      "브랜드 전용으로 맞춤 설계된 고도화된 버추얼 인플루언서를 활용하여, 실제 모델의 일정과 비용 제약 없이 대량의 화보 및 영상 콘텐츠를 생성합니다. 24시간 중단 없는 마케팅이 가능합니다.",
-    highlights: [
-      "정교한 실사 수준의 고품질 디지털 휴먼",
-      "섭외 및 촬영 비용의 획기적 절감",
-      "다국어 및 대량 콘텐츠의 빠른 제작",
-    ],
-    media: {
-      type: "image" as const,
-      src: "/images/solution/clothing-mockup.png",
-      alt: "의류 피팅 이미지 목업",
     },
   },
 ]
@@ -126,7 +109,7 @@ export default function SolutionPage() {
 
       {/* ── Solution Cards ── */}
       <section className="px-6 pb-24 md:pb-32">
-        <div className="max-w-6xl mx-auto space-y-32 md:space-y-40">
+        <div className="max-w-6xl mx-auto space-y-20 md:space-y-40">
           {solutions.map((sol, idx) => (
             <SolutionBlock key={sol.id} solution={sol} index={idx} />
           ))}

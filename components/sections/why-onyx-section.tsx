@@ -42,7 +42,7 @@ export function WhyOnyxSection() {
           </p>
         </motion.div>
 
-        <div className="flex flex-col md:flex-row gap-6 md:gap-6 flex-wrap justify-center">
+        <div className="flex flex-col md:flex-row gap-4 md:gap-6 flex-wrap justify-center">
           <FeatureCard
             title={features[0].title}
             items={features[0].items}
@@ -75,7 +75,7 @@ function FeatureCard({
 }) {
   const decorationSrc =
     decoration === "rings"
-      ? "/images/decoration/rings.png"
+      ? "/images/decoration/ring.png"
       : decoration === "droplet"
         ? "/images/decoration/droplet.png"
         : decoration === "ribbon"
@@ -91,7 +91,7 @@ function FeatureCard({
       className="relative rounded-2xl border border-indigo-500/40 bg-white/5 p-8 py-8 overflow-hidden flex-1 min-w-[min(100%,260px)] min-h-[200px] flex flex-col"
     >
       {decorationSrc && (
-        <div className="absolute top-0 right-0 w-24 h-24">
+        <div className="absolute top-0 right-0 w-16 h-16 md:w-24 md:h-24">
           <Image
             src={decorationSrc}
             alt=""
