@@ -18,6 +18,9 @@
     "react-dom": "19.2.0",
     "resend": "^6.12.2"
   },
+  "pnpm": {
+    "onlyBuiltDependencies": ["sharp"]
+  },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.9",
     "@types/node": "^22",
