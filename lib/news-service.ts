@@ -54,11 +54,36 @@ export async function getPostById(id: string): Promise<NewsPost | null> {
 }
 
 export async function createPost(
-  input: Pick<NewsPost, "title" | "thumbnailUrl" | "body">
+  input: Pick<NewsPost, "title" | "thumbnailUrl" | "body"> & { createdAt?: string }
 ): Promise<NewsPost> {
   const { data, error } = await supabase
     .from("news_posts")
-    .insert({ title: input.title, thumbnail_url: input.thumbnailUrl, body: input.body })
+    .insert({
+      title: input.title,
+      thumbnail_url: input.thumbnailUrl,
+      body: input.body,
+      ...(input.createdAt ? { created_at: input.createdAt } : {}),
+    })
+    .select()
+    .single()
+
+  if (error) throw error
+  return mapRow(data)
+}
+
+export async function updatePost(
+  id: string,
+  input: Pick<NewsPost, "title" | "thumbnailUrl" | "body"> & { createdAt?: string }
+): Promise<NewsPost> {
+  const { data, error } = await supabase
+    .from("news_posts")
+    .update({
+      title: input.title,
+      thumbnail_url: input.thumbnailUrl,
+      body: input.body,
+      ...(input.createdAt ? { created_at: input.createdAt } : {}),
+    })
+    .eq("id", id)
     .select()
     .single()
 

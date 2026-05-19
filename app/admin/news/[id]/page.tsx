@@ -1,25 +1,40 @@
 "use client"
 
-import { useState, useRef } from "react"
-import { useRouter } from "next/navigation"
+import { useState, useRef, useEffect } from "react"
+import { useParams, useRouter } from "next/navigation"
 import { motion } from "framer-motion"
-import { ImageIcon, Loader2 } from "lucide-react"
+import { ImageIcon, Loader2, ArrowLeft } from "lucide-react"
+import Link from "next/link"
 import { ContentBlock } from "@/lib/news"
-import { createPost, uploadImage } from "@/lib/news-service"
+import { getPostById, updatePost, uploadImage } from "@/lib/news-service"
 import { BlockEditor } from "@/components/news/block-editor"
 
 const inputClass =
   "w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-white/30 text-sm outline-none focus:border-indigo-500/60 transition-colors duration-200"
 
-export default function AdminNewsPage() {
+export default function EditNewsPage() {
+  const { id } = useParams<{ id: string }>()
   const router = useRouter()
+
+  const [loading, setLoading] = useState(true)
   const [title, setTitle] = useState("")
   const [thumbnailUrl, setThumbnailUrl] = useState("")
-  const [body, setBody] = useState<ContentBlock[]>([{ type: "text", content: "" }])
-  const [publishedAt, setPublishedAt] = useState(new Date().toISOString().slice(0, 10))
+  const [body, setBody] = useState<ContentBlock[]>([])
+  const [publishedAt, setPublishedAt] = useState("")
   const [submitting, setSubmitting] = useState(false)
   const [thumbUploading, setThumbUploading] = useState(false)
   const thumbRef = useRef<HTMLInputElement>(null)
+
+  useEffect(() => {
+    getPostById(id).then((post) => {
+      if (!post) { router.replace("/news"); return }
+      setTitle(post.title)
+      setThumbnailUrl(post.thumbnailUrl)
+      setBody(post.body)
+      setPublishedAt(post.createdAt.slice(0, 10))
+      setLoading(false)
+    })
+  }, [id, router])
 
   const handleThumbnail = async (file: File) => {
     setThumbUploading(true)
@@ -38,13 +53,21 @@ export default function AdminNewsPage() {
     if (!title.trim() || !thumbnailUrl) return
     setSubmitting(true)
     try {
-      const post = await createPost({ title: title.trim(), thumbnailUrl, body, createdAt: new Date(publishedAt).toISOString() })
-      router.push(`/news/${post.id}`)
+      await updatePost(id, { title: title.trim(), thumbnailUrl, body, createdAt: new Date(publishedAt).toISOString() })
+      router.push(`/news/${id}`)
     } catch {
-      alert("발행에 실패했습니다. 다시 시도해주세요.")
+      alert("수정에 실패했습니다. 다시 시도해주세요.")
     } finally {
       setSubmitting(false)
     }
+  }
+
+  if (loading) {
+    return (
+      <main className="min-h-screen bg-black flex items-center justify-center">
+        <Loader2 size={32} className="animate-spin text-indigo-400" />
+      </main>
+    )
   }
 
   return (
@@ -55,8 +78,14 @@ export default function AdminNewsPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
+          <Link href={`/news/${id}`}
+            className="inline-flex items-center gap-2 text-sm text-white/50 hover:text-white transition-colors mb-8">
+            <ArrowLeft size={16} />
+            기사로 돌아가기
+          </Link>
+
           <p className="text-sm tracking-[0.3em] uppercase text-indigo-400 mb-2">Admin</p>
-          <h1 className="text-3xl font-medium text-white mb-10">뉴스 작성</h1>
+          <h1 className="text-3xl font-medium text-white mb-10">뉴스 수정</h1>
 
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* 제목 */}
@@ -132,7 +161,7 @@ export default function AdminNewsPage() {
               <BlockEditor blocks={body} onChange={setBody} />
             </div>
 
-            {/* 발행 */}
+            {/* 저장 */}
             <motion.button
               type="submit"
               disabled={submitting || thumbUploading || !title.trim() || !thumbnailUrl}
@@ -140,7 +169,7 @@ export default function AdminNewsPage() {
               whileTap={{ scale: 0.98 }}
               className="w-full py-4 bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-sm font-light rounded-xl hover:opacity-90 transition-opacity disabled:opacity-40 disabled:cursor-not-allowed"
             >
-              {submitting ? "발행 중..." : "발행하기"}
+              {submitting ? "저장 중..." : "수정 저장"}
             </motion.button>
           </form>
         </motion.div>

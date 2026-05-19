@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import { useParams, useRouter } from "next/navigation"
 import { motion } from "framer-motion"
 import Link from "next/link"
-import { ArrowLeft } from "lucide-react"
+import { ArrowLeft, Pencil } from "lucide-react"
 import { NewsPost } from "@/lib/news"
 import { getPostById, formatDate } from "@/lib/news-service"
 import { BlockRenderer } from "@/components/news/block-renderer"
@@ -41,13 +41,22 @@ export default function NewsDetailPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <Link
-            href="/news"
-            className="inline-flex items-center gap-2 text-sm text-white/50 hover:text-white transition-colors mb-10"
-          >
-            <ArrowLeft size={16} />
-            뉴스 목록
-          </Link>
+          <div className="flex items-center justify-between mb-10">
+            <Link
+              href="/news"
+              className="inline-flex items-center gap-2 text-sm text-white/50 hover:text-white transition-colors"
+            >
+              <ArrowLeft size={16} />
+              뉴스 목록
+            </Link>
+            <Link
+              href={`/admin/news/${post.id}`}
+              className="inline-flex items-center gap-2 text-sm text-white/50 hover:text-white transition-colors"
+            >
+              <Pencil size={14} />
+              수정
+            </Link>
+          </div>
 
           <p className="text-sm text-indigo-400 mb-3">{formatDate(post.createdAt)}</p>
           <h1 className="text-3xl md:text-4xl font-medium text-white leading-tight mb-8">
