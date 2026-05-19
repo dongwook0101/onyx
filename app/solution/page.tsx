@@ -57,7 +57,7 @@ const solutions = [
     ],
     media: {
       type: "video" as const,
-      src: "/Sajukids_cat.mp4",
+      src: "/videos/virtual-avatar.mp4",
       alt: "DID 비디오 목업",
     },
   },
