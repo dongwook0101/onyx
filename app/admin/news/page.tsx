@@ -1,11 +1,12 @@
 "use client"
 
-import { useState, useRef } from "react"
+import { useState, useRef, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { motion } from "framer-motion"
-import { ImageIcon, Loader2 } from "lucide-react"
-import { ContentBlock } from "@/lib/news"
-import { createPost, uploadImage } from "@/lib/news-service"
+import { ImageIcon, Loader2, Pencil, Trash2 } from "lucide-react"
+import Link from "next/link"
+import { ContentBlock, NewsPost } from "@/lib/news"
+import { createPost, uploadImage, getAllPosts, deletePost, formatDate } from "@/lib/news-service"
 import { BlockEditor } from "@/components/news/block-editor"
 
 const inputClass =
@@ -20,6 +21,26 @@ export default function AdminNewsPage() {
   const [submitting, setSubmitting] = useState(false)
   const [thumbUploading, setThumbUploading] = useState(false)
   const thumbRef = useRef<HTMLInputElement>(null)
+
+  const [posts, setPosts] = useState<NewsPost[]>([])
+  const [deletingId, setDeletingId] = useState<string | null>(null)
+
+  useEffect(() => {
+    getAllPosts().then(setPosts)
+  }, [])
+
+  const handleDelete = async (id: string) => {
+    if (!confirm("이 뉴스를 삭제할까요? 되돌릴 수 없습니다.")) return
+    setDeletingId(id)
+    try {
+      await deletePost(id)
+      setPosts((prev) => prev.filter((p) => p.id !== id))
+    } catch {
+      alert("삭제에 실패했습니다. 다시 시도해주세요.")
+    } finally {
+      setDeletingId(null)
+    }
+  }
 
   const handleThumbnail = async (file: File) => {
     setThumbUploading(true)
@@ -143,6 +164,50 @@ export default function AdminNewsPage() {
               {submitting ? "발행 중..." : "발행하기"}
             </motion.button>
           </form>
+
+          {/* 뉴스 목록 */}
+          {posts.length > 0 && (
+            <div className="mt-16">
+              <h2 className="text-lg font-medium text-white mb-4">게시된 뉴스</h2>
+              <ul className="space-y-3">
+                {posts.map((post) => (
+                  <li
+                    key={post.id}
+                    className="flex items-center gap-4 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3"
+                  >
+                    {post.thumbnailUrl && (
+                      <img
+                        src={post.thumbnailUrl}
+                        alt=""
+                        className="w-14 h-10 rounded-lg object-cover flex-shrink-0"
+                      />
+                    )}
+                    <div className="flex-1 min-w-0">
+                      <p className="text-sm text-white truncate">{post.title}</p>
+                      <p className="text-xs text-white/40 mt-0.5">{formatDate(post.createdAt)}</p>
+                    </div>
+                    <Link
+                      href={`/admin/news/${post.id}`}
+                      className="p-2 text-white/40 hover:text-white transition-colors"
+                    >
+                      <Pencil size={15} />
+                    </Link>
+                    <button
+                      onClick={() => handleDelete(post.id)}
+                      disabled={deletingId === post.id}
+                      className="p-2 text-white/40 hover:text-red-400 transition-colors disabled:opacity-40"
+                    >
+                      {deletingId === post.id ? (
+                        <Loader2 size={15} className="animate-spin" />
+                      ) : (
+                        <Trash2 size={15} />
+                      )}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </motion.div>
       </div>
     </main>

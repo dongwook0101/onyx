@@ -6,7 +6,7 @@ import { motion } from "framer-motion"
 import { ImageIcon, Loader2, ArrowLeft } from "lucide-react"
 import Link from "next/link"
 import { ContentBlock } from "@/lib/news"
-import { getPostById, updatePost, uploadImage } from "@/lib/news-service"
+import { getPostById, updatePost, deletePost, uploadImage } from "@/lib/news-service"
 import { BlockEditor } from "@/components/news/block-editor"
 
 const inputClass =
@@ -22,6 +22,7 @@ export default function EditNewsPage() {
   const [body, setBody] = useState<ContentBlock[]>([])
   const [publishedAt, setPublishedAt] = useState("")
   const [submitting, setSubmitting] = useState(false)
+  const [deleting, setDeleting] = useState(false)
   const [thumbUploading, setThumbUploading] = useState(false)
   const thumbRef = useRef<HTMLInputElement>(null)
 
@@ -45,6 +46,19 @@ export default function EditNewsPage() {
       alert("썸네일 업로드에 실패했습니다.")
     } finally {
       setThumbUploading(false)
+    }
+  }
+
+  const handleDelete = async () => {
+    if (!confirm("이 뉴스를 삭제할까요? 되돌릴 수 없습니다.")) return
+    setDeleting(true)
+    try {
+      await deletePost(id)
+      router.push("/news")
+    } catch {
+      alert("삭제에 실패했습니다. 다시 시도해주세요.")
+    } finally {
+      setDeleting(false)
     }
   }
 
@@ -170,6 +184,18 @@ export default function EditNewsPage() {
               className="w-full py-4 bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-sm font-light rounded-xl hover:opacity-90 transition-opacity disabled:opacity-40 disabled:cursor-not-allowed"
             >
               {submitting ? "저장 중..." : "수정 저장"}
+            </motion.button>
+
+            {/* 삭제 */}
+            <motion.button
+              type="button"
+              onClick={handleDelete}
+              disabled={deleting}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="w-full py-4 border border-red-500/40 text-red-400 text-sm font-light rounded-xl hover:bg-red-500/10 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+            >
+              {deleting ? "삭제 중..." : "뉴스 삭제"}
             </motion.button>
           </form>
         </motion.div>
