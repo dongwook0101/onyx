@@ -41,7 +41,7 @@ export function DemoSection() {
             
           </div>
           <p className="mt-4 text-lg text-white/70 max-w-2xl mx-auto text-center">
-            Digital Twin | 미스 춘향 진 김도연 모델
+            Digital Human | 미스 춘향 진 김도연 모델
           </p>
         </motion.div>
       </div>

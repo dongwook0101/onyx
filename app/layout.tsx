@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import { Navigation } from '@/components/navigation'
+import { Footer } from '@/components/footer'
 
 export const metadata: Metadata = {
   title: 'ONYX AI * PROJECT',
@@ -17,12 +18,13 @@ export default function RootLayout({
       <head>
         <link
           rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700&display=swap"
+          href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
         />
       </head>
       <body className="font-sans antialiased bg-black text-white">
         <Navigation />
         {children}
+        <Footer />
       </body>
     </html>
   )
