@@ -29,20 +29,13 @@ export function DemoSection() {
           className="max-w-4xl mx-auto"
         >
           <div className="rounded-2xl overflow-hidden border border-white/10">
-            <video
-              className="aspect-video w-full bg-black"
-              controls
-              playsInline
-              preload="metadata"
-            >
-              <source src="/videos/demo.mp4" type="video/mp4" />
-              브라우저가 비디오 태그를 지원하지 않습니다.
-            </video>
-            
+            <div className="aspect-video w-full bg-white/5 flex flex-col items-center justify-center gap-3">
+              <svg className="w-12 h-12 text-white/20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
+              </svg>
+              <p className="text-white/40 text-sm tracking-widest uppercase">영상 준비중입니다</p>
+            </div>
           </div>
-          <p className="mt-4 text-lg text-white/70 max-w-2xl mx-auto text-center">
-            Digital Human | 미스 춘향 진 김도연 모델
-          </p>
         </motion.div>
       </div>
     </section>
