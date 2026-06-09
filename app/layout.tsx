@@ -17,6 +17,7 @@ export default function RootLayout({
     <html lang="ko">
       <head>
         <meta name="naver-site-verification" content="10a2ccbbdbe9e066cf5bca00949c85ff97a11bbb" />
+        <meta name="google-site-verification" content="jxd-6q9eEmYzFMp3j0Qg_n05JapVTDw9lnMZ5eGOjt8" />
         <link
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
