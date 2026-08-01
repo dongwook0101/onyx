@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X } from "lucide-react"
 
@@ -46,6 +47,22 @@ export function Navigation() {
                 {item.name}
               </Link>
             ))}
+            <a
+              href="https://www.avatarstudio.co.kr"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative inline-flex items-center text-[16.8px] font-semibold text-white/80 hover:text-white transition-colors duration-200"
+            >
+              <Image
+                src="/images/brand/avatar-studio-logo.png"
+                alt=""
+                aria-hidden="true"
+                width={31}
+                height={31}
+                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[31px] w-[31px] opacity-90"
+              />
+              <span className="relative z-10">AVATAR STUDIO</span>
+            </a>
             <Link
               href="/contact"
               className="px-5 py-2.5 bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-sm font-light rounded-xl hover:opacity-90 transition-opacity duration-200"
@@ -85,10 +102,27 @@ export function Navigation() {
                   {item.name}
                 </Link>
               ))}
+              <a
+                href="https://www.avatarstudio.co.kr"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="mt-4 relative inline-flex items-center text-[21.6px] font-semibold text-white/80 hover:text-white transition-colors"
+              >
+                <Image
+                  src="/images/brand/avatar-studio-logo.png"
+                  alt=""
+                  aria-hidden="true"
+                  width={37}
+                  height={37}
+                  className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[37px] w-[37px] opacity-90"
+                />
+                <span className="relative z-10">AVATAR STUDIO</span>
+              </a>
               <Link
                 href="/contact"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="mt-4 px-8 py-3 bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-base font-light rounded-xl"
+                className="px-8 py-3 bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-base font-light rounded-xl"
               >
                 CONTACT
               </Link>

@@ -173,6 +173,72 @@ export default function SolutionPage() {
         </div>
       </section>
 
+      {/* ── Brand Family ── */}
+      <section className="py-24 md:py-32 px-6">
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            {...fadeUp}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <p className="text-sm tracking-[0.2em] uppercase text-indigo-400 mb-4">
+              Brand Family
+            </p>
+            <h2 className="text-3xl md:text-4xl font-light text-white tracking-tight">
+              오닉스가 만드는 또 하나의 브랜드
+            </h2>
+          </motion.div>
+
+          <a
+            href="https://www.avatarstudio.co.kr"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex flex-col md:flex-row-reverse gap-10 md:gap-16 items-center"
+          >
+            {/* Media */}
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: true }}
+              className="w-full md:w-1/2 flex-shrink-0"
+            >
+              <div className="rounded-2xl overflow-hidden border border-white/10 bg-white/[0.02] group-hover:border-indigo-500/40 transition-colors duration-300">
+                <Image
+                  src="/images/solution/avatarstudio.png"
+                  alt="아바타스튜디오"
+                  width={800}
+                  height={600}
+                  className="w-full h-auto object-cover"
+                />
+              </div>
+            </motion.div>
+
+            {/* Text */}
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7, delay: 0.1 }}
+              viewport={{ once: true }}
+              className="w-full md:w-1/2"
+            >
+              <span className="inline-block px-3 py-1 text-xs tracking-wider uppercase rounded-full border border-indigo-500/40 text-indigo-400 mb-4">
+                Creator Management
+              </span>
+              <h3 className="text-2xl md:text-3xl font-light text-white tracking-tight">
+                Avatar Studio
+              </h3>
+              <p className="mt-4 text-white/60 leading-relaxed">
+                얼굴 노출 부담 없이 시작하는 크리에이터 매니지먼트. 자체 얼굴 변환 기술로 <br></br>새로운 가상 얼굴을 부여하고, 콘텐츠 제작부터 마케팅·운영까지 크리에이터 <br></br>활동 전 과정을 책임집니다.
+              </p>
+              <span className="inline-flex items-center gap-1 group-hover:gap-3 transition-all duration-300 mt-6 text-indigo-400 text-sm">
+                사이트 방문하기 <span>→</span>
+              </span>
+            </motion.div>
+          </a>
+        </div>
+      </section>
+
       {/* ── CTA ── */}
       <section className="py-24 md:py-32 px-6">
         <motion.div
